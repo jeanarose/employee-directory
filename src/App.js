@@ -1,11 +1,13 @@
 import Container from "./components/Container/Container";
-import EmployeeDirectory from "./components/EmployeeDirectory/EmployeeDirectory";
+import Hero from "./components/Hero/Hero";
+import Table from "./components/Table/Table";
 
 function App() {
   return (
     <>
+      <Hero />
       <Container>
-        <EmployeeDirectory />
+        <Table />
       </Container>
     </>
   );

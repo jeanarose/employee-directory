@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 
-class EmployeeDirectory extends Component {
+class Table extends Component {
   render() {
     return (
       <>
-        <h1 className="title has-text-centered">Employee Directory</h1>
         <table className="table is-striped is-fullwidth">
           <thead>
             <tr>
@@ -80,4 +79,4 @@ class EmployeeDirectory extends Component {
   }
 }
 
-export default EmployeeDirectory;
+export default Table;
