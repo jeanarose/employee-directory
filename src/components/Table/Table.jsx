@@ -1,6 +1,31 @@
 import React, { Component } from "react";
-
+import axios from "axios";
 class Table extends Component {
+  state = {
+    image: "",
+    name: "",
+    phone: "",
+    email: "",
+    DOB: "",
+  };
+
+  componentDidMount() {
+    this.getEmployees();
+  }
+
+  getEmployees = () => {
+    return axios.get("https://randomuser.me/api/").then((response) => {
+      console.log(response.data.results[0]);
+      const employee = response.data.results[0];
+      this.setState({
+        image: employee.picture.thumbnail,
+        name: `${employee.name.first} ${employee.name.last}`,
+        phone: employee.phone,
+        email: employee.email,
+        DOB: employee.dob.date,
+      });
+    });
+  };
   render() {
     return (
       <>
@@ -16,61 +41,13 @@ class Table extends Component {
           </thead>
           <tbody>
             <tr>
-              <th>1</th>
-              <td>
-                <a
-                  href="https://en.wikipedia.org/wiki/Leicester_City_F.C."
-                  title="Leicester City F.C."
-                >
-                  Leicester City
-                </a>{" "}
-                <strong>(C)</strong>
-              </td>
-              <td>38</td>
-              <td>23</td>
-              <td>12</td>
-            </tr>
-            <tr>
-              <th>2</th>
-              <td>
-                <a
-                  href="https://en.wikipedia.org/wiki/Arsenal_F.C."
-                  title="Arsenal F.C."
-                >
-                  Arsenal
-                </a>
-              </td>
-              <td>38</td>
-              <td>20</td>
-              <td>11</td>
-            </tr>
-            <tr>
-              <th>3</th>
-              <td>
-                <a
-                  href="https://en.wikipedia.org/wiki/Tottenham_Hotspur_F.C."
-                  title="Tottenham Hotspur F.C."
-                >
-                  Tottenham Hotspur
-                </a>
-              </td>
-              <td>38</td>
-              <td>19</td>
-              <td>13</td>
-            </tr>
-            <tr>
-              <th>4</th>
-              <td>
-                <a
-                  href="https://en.wikipedia.org/wiki/Manchester_City_F.C."
-                  title="Manchester City F.C."
-                >
-                  Manchester City
-                </a>
-              </td>
-              <td>38</td>
-              <td>19</td>
-              <td>9</td>
+              <th>
+                <img src={this.state.image} alt="" />
+              </th>
+              <td>{this.state.name}</td>
+              <td>{this.state.phone}</td>
+              <td>{this.state.email}</td>
+              <td>{this.state.DOB}</td>
             </tr>
           </tbody>
         </table>
