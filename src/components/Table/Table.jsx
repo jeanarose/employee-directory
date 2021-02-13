@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import moment from "moment";
 import "./Table.css";
 class Table extends Component {
   state = {
@@ -14,7 +15,7 @@ class Table extends Component {
     return axios
       .get("https://randomuser.me/api/?results=30")
       .then((response) => {
-        console.log(response.data.results)
+        console.log(response.data.results);
         this.setState({ arrayOfEmployees: response.data.results });
       });
   };
@@ -49,7 +50,7 @@ class Table extends Component {
                     </td>
                     <td className="is-vcentered">{employee.phone}</td>
                     <td className="is-vcentered">{employee.email}</td>
-                    <td className="is-vcentered">{employee.dob.date}</td>
+                    <td className="is-vcentered">{moment(employee.dob.date).format('ll')}</td>
                   </tr>
                 </>
               );
