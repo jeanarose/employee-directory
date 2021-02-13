@@ -4,7 +4,7 @@ class EmployeeDirectory extends Component {
   render() {
     return (
       <>
-        <h1 classNameName="title">Hello World!</h1>
+        <h1 className="title has-text-centered">Employee Directory</h1>
         <table className="table is-striped is-fullwidth">
           <thead>
             <tr>
