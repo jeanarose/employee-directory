@@ -1,8 +1,13 @@
+import Container from "./components/Container/Container";
+import EmployeeDirectory from "./components/EmployeeDirectory/EmployeeDirectory";
+
 function App() {
   return (
-    <div className="container">
-      <h1 className="title">Hello World!</h1>
-    </div>
+    <>
+      <Container>
+        <EmployeeDirectory />
+      </Container>
+    </>
   );
 }
 
