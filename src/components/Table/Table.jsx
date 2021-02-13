@@ -3,11 +3,6 @@ import axios from "axios";
 import "./Table.css";
 class Table extends Component {
   state = {
-    image: "",
-    name: "",
-    phone: "",
-    email: "",
-    DOB: "",
     arrayOfEmployees: [],
   };
 
@@ -19,19 +14,8 @@ class Table extends Component {
     return axios
       .get("https://randomuser.me/api/?results=30")
       .then((response) => {
-        const employees = this.state.arrayOfEmployees;
-        for (let i = 0; i < response.data.results.length; i++) {
-          const employee = response.data.results[i];
-          employees.push(employee);
-          this.setState({
-            image: employee.picture.large,
-            name: `${employee.name.first} ${employee.name.last}`,
-            phone: employee.phone,
-            email: employee.email,
-            DOB: employee.dob.date,
-            arrayOfEmployees: employees,
-          });
-        }
+        console.log(response.data.results)
+        this.setState({ arrayOfEmployees: response.data.results });
       });
   };
   render() {
@@ -55,15 +39,17 @@ class Table extends Component {
                     <th>
                       <img
                         className="employee-image"
-                        src={this.state.image}
+                        src={employee.picture.large}
                         alt=""
                       />
                     </th>
 
-                    <td className="is-vcentered">{this.state.name}</td>
-                    <td className="is-vcentered">{this.state.phone}</td>
-                    <td className="is-vcentered">{this.state.email}</td>
-                    <td className="is-vcentered">{this.state.DOB}</td>
+                    <td className="is-vcentered">
+                      {employee.name.first} {employee.name.last}
+                    </td>
+                    <td className="is-vcentered">{employee.phone}</td>
+                    <td className="is-vcentered">{employee.email}</td>
+                    <td className="is-vcentered">{employee.dob.date}</td>
                   </tr>
                 </>
               );
