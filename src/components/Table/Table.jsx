@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import "./Table.css"
 class Table extends Component {
   state = {
     image: "",
@@ -18,7 +19,7 @@ class Table extends Component {
       console.log(response.data.results[0]);
       const employee = response.data.results[0];
       this.setState({
-        image: employee.picture.thumbnail,
+        image: employee.picture.large,
         name: `${employee.name.first} ${employee.name.last}`,
         phone: employee.phone,
         email: employee.email,
@@ -42,12 +43,12 @@ class Table extends Component {
           <tbody>
             <tr>
               <th>
-                <img src={this.state.image} alt="" />
+                <img className="employee-image" src={this.state.image} alt="" />
               </th>
-              <td>{this.state.name}</td>
-              <td>{this.state.phone}</td>
-              <td>{this.state.email}</td>
-              <td>{this.state.DOB}</td>
+              <td className="is-vcentered">{this.state.name}</td>
+              <td className="is-vcentered">{this.state.phone}</td>
+              <td className="is-vcentered">{this.state.email}</td>
+              <td className="is-vcentered">{this.state.DOB}</td>
             </tr>
           </tbody>
         </table>
