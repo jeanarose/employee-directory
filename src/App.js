@@ -1,16 +1,8 @@
 import Container from "./components/Container/Container";
-import Hero from "./components/Hero/Hero";
-import Table from "./components/Table/Table";
+import EmployeeDirectory from "./components/EmployeeDirectory/EmployeeDirectory";
 
 function App() {
-  return (
-    <>
-      <Hero />
-      <Container>
-        <Table />
-      </Container>
-    </>
-  );
+  return <EmployeeDirectory />;
 }
 
 export default App;
