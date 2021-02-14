@@ -20,6 +20,7 @@ class EmployeeRows extends Component {
         this.setState({ arrayOfEmployees: response.data.results });
       });
   };
+
   render() {
     return (
       <>
