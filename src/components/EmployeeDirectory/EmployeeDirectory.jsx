@@ -1,6 +1,6 @@
 import Container from "../Container/Container";
 import Hero from "../Hero/Hero";
-import Table from "../Table/Table";
+import EmployeeTable from "../EmployeeTable/EmployeeTable";
 import Search from "../Search/Search";
 
 function EmployeeDirectory() {
@@ -9,7 +9,7 @@ function EmployeeDirectory() {
       <Hero />
       <Container>
         <Search />
-        <Table />
+        <EmployeeTable />
       </Container>
     </>
   );
