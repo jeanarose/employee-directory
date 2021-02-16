@@ -46,7 +46,18 @@ class EmployeeTable extends Component {
 
   handlePhoneSort = (event) => {};
   handleEmailSort = (event) => {};
-  handleDOBSort = (event) => {};
+  handleDOBSort = (event) => {
+    console.log("Caret clicked!");
+    const sortedDOB = this.state.employees;
+    sortedDOB.sort((a, b) => {
+      if (a.dob.date < b.dob.date) {
+        return a.dob.date.localeCompare(b.dob.date);
+      } else if (a.dob.date > b.dob.date) {
+        return a.dob.date.localeCompare(b.dob.date);
+      }
+    });
+    this.setState({ employees: sortedDOB });
+  };
 
   render() {
     return (
