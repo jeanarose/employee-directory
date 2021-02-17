@@ -61,6 +61,7 @@ class EmployeeTable extends Component {
     const sorted = this.state.employees.sort(compare);
     this.setState({ filteredEmployees: sorted });
   };
+  
   handleDOBSort = (event) => {
     this.setState({ sort: !this.state.sort });
     const compare = (a, b) => {
@@ -95,12 +96,7 @@ class EmployeeTable extends Component {
                 ></i>
               </th>
               <th>
-                Phone{" "}
-                <i
-                  name="phone"
-                  onClick={this.handlePhoneSort}
-                  class="fas fa-caret-down"
-                ></i>
+                Phone
               </th>
               <th>
                 Email{" "}
