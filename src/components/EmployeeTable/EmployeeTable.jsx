@@ -35,48 +35,48 @@ class EmployeeTable extends Component {
     });
     this.setState({ filteredEmployees: filteredEmployees });
   };
-// object.values of each employee would be an array of every value so if I do .join I get one long string and then I can search .includes and it will search every column of the employees
+  // object.values of each employee would be an array of every value so if I do .join I get one long string and then I can search .includes and it will search every column of the employees
   handleNameSort = (event) => {
     this.setState({ sort: !this.state.sort });
     const compare = (a, b) => {
       if (this.state.sort) {
-        return a.name.last.localeCompare(b.name.last);
-      } else {
         return b.name.last.localeCompare(a.name.last);
+      } else {
+        return a.name.last.localeCompare(b.name.last);
       }
     };
     const sorted = this.state.employees.sort(compare);
     this.setState({ filteredEmployees: sorted });
   };
 
-  handlePhoneSort = (event) => {};
   handleEmailSort = (event) => {
-    const sortedEmail = this.state.employees;
-    sortedEmail.sort((a, b) => {
-      if (a.email < b.email) {
-        return a.email.localeCompare(b.email);
-      } else if (a.email > b.email) {
+    this.setState({ sort: !this.state.sort });
+    const compare = (a, b) => {
+      if (this.state.sort) {
+        return b.email.localeCompare(a.email);
+      } else {
         return a.email.localeCompare(b.email);
       }
-    });
-    this.setState({ employees: sortedEmail });
+    };
+    const sorted = this.state.employees.sort(compare);
+    this.setState({ filteredEmployees: sorted });
   };
   handleDOBSort = (event) => {
-    const sortedDOB = this.state.employees;
-    sortedDOB.sort((a, b) => {
-      if (a.dob.date < b.dob.date) {
-        return a.dob.date.localeCompare(b.dob.date);
-      } else if (a.dob.date > b.dob.date) {
+    this.setState({ sort: !this.state.sort });
+    const compare = (a, b) => {
+      if (this.state.sort) {
+        return b.dob.date.localeCompare(a.dob.date);
+      } else {
         return a.dob.date.localeCompare(b.dob.date);
       }
-    });
-    this.setState({ employees: sortedDOB });
+    };
+    const sorted = this.state.employees.sort(compare);
+    this.setState({ filteredEmployees: sorted });
   };
 
   render() {
     return (
       <>
-        {/* value and onChange are the props */}
         <Search
           name="searchTerm"
           value={this.state.searchTerm}
