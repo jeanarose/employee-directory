@@ -5,8 +5,7 @@
 
 View the deployed app here: https://jeanarose.github.io/employee-directory/
 ## Employee Directory
-![Screenshot of Employee Directory application.](assets/images/employee-directory.png)
-![Screenshot of Employee Directory application.](assets/images/dashboard.png)
+![Screenshot of Employee Directory application.](images/employee-directory.png)
 
 ## Table of Contents
 * [Installation](#installation)
