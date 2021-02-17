@@ -6,7 +6,7 @@ const Search = (props) => {
           name="searchTerm"
           className="input mt-6 mb-6"
           type="text"
-          placeholder="Search by Name"
+          placeholder="Search by First Name"
           onChange={props.onChange}
         />
     );
